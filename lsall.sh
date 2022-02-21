@@ -11,7 +11,8 @@ echo ""
 for FILES in $(ls -l | grep -vE '^d|^l' |wc -l); do printf "=====[ Files: $FILES ]====="'\n';done
 echo ""
 #only lists files in current folder (grep -v ignores strings, ^d is for the directories and ^l is for the links)
-ls -l | grep -vE '^d|^l'
+#tail -n +2 means show everything after line 2. Doing this to get rid of the "total" at the top
+ls -l | tail -n +2 | grep -vE '^d|^l'
 echo ""
 
 for LINKS in $(find ./* -maxdepth 0 -type l -ls | wc -l); do printf "=====[ Links: $LINKS ]====="'\n';done
