@@ -6,7 +6,9 @@ echo ""
 #only lists directories in current folder
 ls -ld */ --color=auto
 echo ""
-echo "Total Directories:" & ls -ld */ --color=auto |wc -l
+echo "Total Directories:" & ls -ld */ |wc -l
+#I had an issue with this listing one of my symbolic links, so below is an alternative...
+#find ./* -maxdepth 0 -type d -ls | wc -l
 echo ""
 echo "=====[ Files ]====="
 echo ""
